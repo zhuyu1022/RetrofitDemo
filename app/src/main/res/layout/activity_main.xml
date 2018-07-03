@@ -7,23 +7,11 @@
     tools:context="com.zhuyu.retrofitdemo.MainActivity">
 
     <Button
-        android:id="@+id/getBtn"
-        android:text="GET请求"
+        android:id="@+id/normalBtn"
+        android:text="普通请求"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/getBtn" >
 
-        <TextView
-            android:id="@+id/resultTv"
-            android:layout_below="@+id/getBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            />
-    </ScrollView>
 
 
 </RelativeLayout>

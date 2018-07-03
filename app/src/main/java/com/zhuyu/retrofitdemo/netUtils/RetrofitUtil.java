@@ -4,6 +4,7 @@ import com.zhuyu.retrofitdemo.Api;
 import com.zhuyu.retrofitdemo.Constant;
 
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Name: RetrofitUtil
@@ -15,14 +16,14 @@ import retrofit2.Retrofit;
 public class RetrofitUtil {
 
     private static RetrofitUtil mRetrofitUtil;
-    private  Retrofit mRetrofit;
-    public static  RetrofitUtil getInstanse() {
+    private Retrofit mRetrofit;
+
+    public static RetrofitUtil getInstanse() {
         if (mRetrofitUtil == null) {
             mRetrofitUtil = new RetrofitUtil();
         }
         return mRetrofitUtil;
     }
-
 
 
     private RetrofitUtil() {
@@ -31,12 +32,12 @@ public class RetrofitUtil {
 
     private void initRetrofit() {
 
-        mRetrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).build();
+        mRetrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
     }
 
-    public Api createApi(){
-       return mRetrofit.create(Api.class);
+    public Api createApi() {
+        return mRetrofit.create(Api.class);
     }
 
 }

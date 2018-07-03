@@ -1,11 +1,14 @@
 package com.zhuyu.retrofitdemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
+
+import com.zhuyu.retrofitdemo.activity.NormalActivity;
 
 import java.io.IOException;
 
@@ -16,8 +19,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button getBtn;
-    private TextView resultTv;
+    private Button normalBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +31,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        getBtn = findViewById(R.id.getBtn);
-        resultTv = findViewById(R.id.resultTv);
-        getBtn.setOnClickListener(new View.OnClickListener() {
+        normalBtn = findViewById(R.id.normalBtn);
+
+        normalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getNews();
+               startActivity(new Intent(MainActivity.this, NormalActivity.class));
             }
         });
     }
 
-    private void getNews() {
-        ApiImpl.getNews("top", Constant.NEWS_KEY, newsCallback);
-    }
-
-    Callback<ResponseBody> newsCallback = new Callback<ResponseBody>() {
-        @Override
-        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-            try {
-                String result=response.body().string();
-                resultTv.setText(result);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        @Override
-        public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-        }
-    };
 }
