@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.NormalActivity"></activity>
+        <activity android:name=".activity.NormalActivity" />
+        <activity android:name=".activity.RXActivity"></activity>
     </application>
 
 </manifest>

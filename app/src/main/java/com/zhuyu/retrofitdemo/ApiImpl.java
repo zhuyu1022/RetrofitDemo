@@ -3,6 +3,7 @@ package com.zhuyu.retrofitdemo;
 import com.zhuyu.retrofitdemo.entity.GetBean;
 import com.zhuyu.retrofitdemo.netUtils.RetrofitUtil;
 
+import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,5 +27,12 @@ public class ApiImpl {
         Api api = RetrofitUtil.getInstanse().createApi();
         Call<GetBean> call = api.getData(type,size,page);
         call.enqueue(callback);
+    }
+
+
+    public static  void getDataWithRxJava(String type, String size,String page, Callback callback) {
+        Api api = RetrofitUtil.getInstanse().createApi();
+        Observable <GetBean> observable = api.getDataWithRxJava(type,size,page);
+
     }
 }

@@ -11,7 +11,12 @@
         android:text="普通请求"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
+    <Button
+        android:id="@+id/RxBtn"
+        android:text="rxjava请求"
+        android:layout_toRightOf="@id/normalBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

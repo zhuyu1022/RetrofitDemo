@@ -2,6 +2,8 @@ package com.zhuyu.retrofitdemo;
 
 import com.zhuyu.retrofitdemo.entity.GetBean;
 
+
+import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -29,5 +31,8 @@ public interface Api {
      */
     @GET("api/data/{type}/{size}/{page}")
     Call<GetBean> getData(@Path("type")String type, @Path("size")String size, @Path("page")String page);
+
+    @GET("api/data/{type}/{size}/{page}")
+    Observable <GetBean> getDataWithRxJava(@Path("type")String type, @Path("size")String size, @Path("page")String page);
 
 }

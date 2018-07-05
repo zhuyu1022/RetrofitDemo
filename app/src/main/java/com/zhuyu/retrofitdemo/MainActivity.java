@@ -9,6 +9,7 @@ import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
 import com.zhuyu.retrofitdemo.activity.NormalActivity;
+import com.zhuyu.retrofitdemo.activity.RXActivity;
 
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button normalBtn;
+    private Button normalBtn,rxBtn;
 
 
     @Override
@@ -32,11 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         normalBtn = findViewById(R.id.normalBtn);
-
+        rxBtn= findViewById(R.id.RxBtn);
         normalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                startActivity(new Intent(MainActivity.this, NormalActivity.class));
+            }
+        });
+        rxBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RXActivity.class));
             }
         });
     }
